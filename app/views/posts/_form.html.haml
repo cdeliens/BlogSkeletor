@@ -1,0 +1,11 @@
+= simple_form_for(@post) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :title
+    = f.input :image
+    = f.input :body, as: :hidden
+    %trix-editor{:input => "post_body"}
+
+  .form-actions
+    = f.button :submit

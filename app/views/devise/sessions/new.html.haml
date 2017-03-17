@@ -1,0 +1,19 @@
+/ ========== Start Wrapper ==========
+.wrapper
+  = render "layouts/header"
+  / ========== Start Content Page ==========
+  .content
+    .lrs-divider-3
+    / ========== Start Content Blog ==========
+    .container
+      .row
+        .col-sm-5.col-sm-offset-5
+          %h2 Log in
+          = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+            .form-inputs
+              = f.input :email, required: false, autofocus: true
+              = f.input :password, required: false
+              -# = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
+            .form-actions
+              = f.button :submit, "Log in"
+          -# = render "devise/shared/links"

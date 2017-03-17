@@ -1,0 +1,25 @@
+/ ========== Start Wrapper ==========
+.wrapper
+  = render "layouts/header"
+  .lrs-divider-3
+  / ========== Start Content Page ==========
+  .lrs-content-post
+    / ========== Start Content Post ==========
+    .container
+      .row
+        .lrs-post-page
+          .col-sm-8.col-sm-offset-2
+            .row
+              .lrs-post-page-img
+                %img.img-responsive{:src => @post.image}/
+              .lrs-post-page-content
+                %span.lrs-post-page-category
+                  - @post.categories.each do |cat|
+                    %i= cat.name
+                %h2.lrs-post-page-title
+                  = @post.title
+                %br/
+                = @post.body.html_safe
+              .lrs-divider-3
+    .lrs-divider-3
+    =render "layouts/contact"

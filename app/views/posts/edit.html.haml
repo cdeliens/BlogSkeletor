@@ -1,0 +1,14 @@
+/ ========== Start Wrapper ==========
+.wrapper
+  = render "layouts/header"
+  / ========== Start Content Page ==========
+  .content
+    .lrs-divider-3
+    / ========== Start Content Blog ==========
+    .container
+      .row
+        .col-sm-12
+          %h1 Edit post
+          = render 'form'
+
+          = link_to 'Show', @post

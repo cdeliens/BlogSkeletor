@@ -1,0 +1,31 @@
+/ ========== Start Wrapper ==========
+.wrapper
+  = render "layouts/header"
+  / ========== Start Content Page ==========
+  .content
+    .lrs-divider-3
+    / ========== Start Content Blog ==========
+    .container
+      #blog
+        .row
+          - @posts.each do |post|
+            .col-sm-6
+              .lrs-post
+                %a{:href => post_path(post)}
+                  %img.img-responsive.lrs-post-img{:src => post.image}/
+                  .lrs-post-overlay
+                  .lrs-post-content
+                    %span.lrs-post-categories
+                      - post.categories.each do |cat|
+                        %i= cat.name
+                    %h5.lrs-post-title
+                      %b= post.title
+                    %p.lrs-post-description
+                      = truncate(strip_tags(post.body), length: 164)
+                    %p.btn-modern Read article
+      .lrs-divider-3
+    / ========== End Content Blog ==========
+    .lrs-divider-3
+    = render "layouts/contact"
+  / ========== End Content Page ==========
+/ ========== End Wrapper ==========
